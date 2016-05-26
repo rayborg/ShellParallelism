@@ -1,11 +1,11 @@
 #!/bin/bash
-#Example: ./BashParallelism.sh 20
-#This will run some command given in the code the number of times specified in the input parameter
+#Example: ./BashParallelism.sh somefile.txt 20
+#This will run some commands given in the file simultaneously the number of lines specified in the input parameter
 
 
 while read line           
 do
-	parallelism=$1 #Input number of threads from user
+	parallelism=$2 #Input number of threads from user
 	
 	eval $line & #<-This ampersand Parallelizes the process eval $someComplexLinuxCommand
 	
@@ -16,4 +16,4 @@ do
 		wait
 		NPROC=0
 	fi #Done parallelism 
-done < inputFile.txt
+done < $1 #inputFile.txt
