@@ -12,7 +12,7 @@ do
 	#Parallelize malicious conversation filter
 	NPROC=$(($NPROC+1))
 	if [ "$NPROC" -ge "$parallelism" ]; then
-		echo "Waiting for $parallelism tshark processes to finish..."
+		echo "Waiting for $parallelism processes to finish..."
 		wait
 		NPROC=0
 	fi #Done parallelism 
